@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crud</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Add</button>
+    </form>
+    <ul>
+        {% for crud in cruds %}
+        <span style="display:flex;">
+            <li>{{ crud.title }}</li>
+            <a href="/cruds/delete/{{ crud.id }}">X</a>
+            <a href="/cruds/show/{{ crud.id }}">E</a>
+        </span>
+        {% endfor %}
+    </ul>
+</body>
+</html>
